@@ -3,7 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Type Page: a typewriter in your browser</title>
+<title>Type Page | Online Typewriter with A4 Sheets, English and Bangla</title>
+<meta name="description" content="Type Page is a free online typewriter. Write on aged A4 paper with real typewriter fonts, ink colors, sound and Bangla phonetic typing. Download your page as an image.">
+<meta name="theme-color" content="#2b1d14">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://rifat440.github.io/typewriter/">
+<meta property="og:url" content="https://rifat440.github.io/typewriter/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Type Page | Online Typewriter">
+<meta property="og:description" content="Write on vintage A4 paper with typewriter fonts, ink colors, sound and Bangla typing. Free, private, no sign-up.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Special+Elite&family=Cutive+Mono&family=IBM+Plex+Mono&family=Source+Code+Pro&display=swap" rel="stylesheet">
@@ -46,63 +56,138 @@ dialog img{display:block;max-width:100%;max-height:68vh;margin:.75rem auto;box-s
 dialog p{margin:.25rem 0;color:var(--muted);font-size:.9rem}
 .row{display:flex;justify-content:flex-end;gap:.5rem}
 .hint{max-width:760px;margin:0 auto;padding:0 1.25rem 2rem;color:var(--muted);font-size:.85rem;line-height:1.55}
-@media (max-width:560px){.grp{border:0;padding-right:0}}
+.foot{max-width:760px;margin:0 auto;padding:0 1.25rem 2rem;color:var(--muted);font-size:.82rem;text-align:center;line-height:1.6}
+.foot p{margin:.2rem 0}
+dialog h2{margin:0 0 .5rem;font-weight:400;letter-spacing:.03em}
+dialog h3{margin:1rem 0 .25rem;font-size:.95rem;color:var(--brass);font-weight:400}
+dialog ul{margin:0;padding-left:1.1rem;font-size:.88rem;line-height:1.55}
+dialog{max-height:88vh;overflow:auto}
+.layout{display:grid;grid-template-columns:minmax(220px,1fr) minmax(520px,760px) minmax(220px,1fr);gap:1.75rem;align-items:start;width:100%;padding:1.5rem 1.5rem 0}
+.layout main{padding:0 0 2rem;min-width:0;display:block}
+.side{width:100%;max-width:440px;background:rgba(28,19,13,.92);border:1px solid #5a432c;border-radius:14px;padding:1.5rem;position:sticky;top:1rem}
+.side.left{justify-self:start}
+.side.right{justify-self:end}
+.side h2{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:1.6rem 0 .7rem;font-weight:400}
+.side h2:first-child{margin-top:0}
+.side button,.side select{width:100%;padding:.65rem .9rem;font-size:1rem}
+.side button{text-align:left}
+.side button.sw{width:32px;height:32px;padding:0;text-align:center}
+.side input[type=color]{width:40px;height:34px}
+.tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.inkrow{display:flex;flex-wrap:wrap;gap:.65rem;align-items:center}
+.fld{display:flex;flex-direction:column;align-items:stretch;gap:.4rem}
+.fld input[type=range]{width:100%}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.pgno{text-align:center;font-size:.95rem;margin:.75rem 0}
+.msg{display:block;min-height:1.1rem;margin-top:.5rem;font-size:.85rem;color:var(--muted)}
+.note{font-size:.85rem;color:var(--muted);line-height:1.6;margin:1.5rem 0 0}
+.side.left{position:static;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1.4rem 1.5rem;padding:1.4rem}
+.s{min-width:0}
+.s.wide{grid-column:1/-1}
+.s h2,.side.left .s h2:first-child{margin:0 0 .65rem}
+.tg1{display:grid;gap:.55rem}
+.side.left .pgno{margin:.55rem 0}
+@media(max-width:1059px){
+  .layout{grid-template-columns:1fr 1fr;max-width:860px;margin:0 auto}
+  .layout main{grid-column:1/-1;order:3}
+  .side,.side.left,.side.right{position:static;max-height:none;max-width:none;justify-self:stretch}
+}
+@media(max-width:560px){.layout{grid-template-columns:1fr}.layout main{order:3}}
 </style>
 </head>
 <body>
+<noscript><p style="padding:1rem">Type Page needs JavaScript to run. Please enable it and reload.</p></noscript>
 <header>
   <h1>Type Page</h1>
-  <p>A typewriter for your browser. A4 sheets, English and Bangla.</p>
+  <p>A free online typewriter. A4 sheets, English and Bangla.</p>
 </header>
 
-<div class="bar" role="toolbar" aria-label="Typewriter controls">
-  <div class="grp" id="inkgrp" role="group" aria-label="Ink color"><span id="inks" style="display:contents"></span><input type="color" id="ink" value="#1b1a18" aria-label="Custom ink color" title="Custom color"></div>
-  <div class="grp">
-    <label>Paper <select id="paper" aria-label="Paper style"><option value="cream">Aged cream</option><option value="letter">Yellowed letter</option><option value="ledger">Ledger</option><option value="skin">Onion skin</option><option value="plain">Clean sheet</option></select></label>
-    <label>Typeface <select id="font" aria-label="Typeface"><option value="Courier Prime">Courier Prime (screenwriting)</option><option value="Special Elite">Special Elite (retro design)</option><option value="__rough">1942 Report look-alike (worn)</option><option value="Cutive Mono">Cutive Mono</option><option value="IBM Plex Mono">IBM Plex Mono</option><option value="Source Code Pro">Source Code Pro (coding &amp; alignment)</option><option value="__mix">Mixed (every letter)</option></select></label>
-    <label>Language <select id="lang" aria-label="Typing language"><option value="en">English</option><option value="bn">বাংলা (phonetic)</option></select></label>
-    <label>Bangla font <select id="bfont" aria-label="Bangla typeface"><option>Noto Sans Bengali</option><option>Noto Serif Bengali</option><option>Hind Siliguri</option><option>Tiro Bangla</option><option>Anek Bangla</option><option>Baloo Da 2</option><option>Galada</option><option>Atma</option><option value="__mix">Mixed (every letter)</option></select></label>
-  </div>
-  <div class="grp">
-    <button id="erase" aria-pressed="true" title="Backspace deletes the letter before the cursor">Backspace erases</button>
-    <button id="eraser" aria-pressed="false" title="Click or drag over a page to erase letters">Eraser tool</button>
-    <button id="ins" aria-pressed="true" title="Insert pushes text right like Word. Overstrike types over it like a real typewriter. Insert key toggles.">Insert</button>
-  </div>
-  <div class="grp">
-    <button id="wrap" aria-pressed="true">Return at margin</button>
-    <button id="acap" aria-pressed="true" title="Capital letter at the start of a line and after . ! ?">Auto capitals</button>
-    <button id="snd" aria-pressed="true">Sound on</button>
-    <label>Volume <input id="vol" type="range" min="0" max="1" step=".05" value=".6" aria-label="Volume"></label>
-  </div>
-  <div class="grp">
-    <button id="copy">Copy text</button>
-    <button id="paste">Paste</button>
-    <span id="msg" role="status" style="font-size:.85rem;color:var(--muted)"></span>
-  </div>
-  <div class="grp">
-    <button id="prev">Prev sheet</button>
-    <span id="pgno" style="font-size:.9rem">Page 1 of 1</span>
-    <button id="next">Next sheet</button>
-    <button id="new">Clear all</button>
-    <button id="done" class="primary">Download page</button>
-  </div>
-</div>
-
-<main>
+<div class="layout">
+  <aside class="side left" aria-label="Writing controls">
+    <section class="s"><h2>Ink</h2>
+      <div class="inkrow" role="group" aria-label="Ink color"><span id="inks" style="display:contents"></span><input type="color" id="ink" value="#1b1a18" aria-label="Custom ink color" title="Custom color"></div>
+    </section>
+    <section class="s"><h2>Paper</h2>
+      <label class="fld"><span class="sr">Paper style</span><select id="paper" aria-label="Paper style"><option value="cream">Aged cream</option><option value="letter">Yellowed letter</option><option value="ledger">Ledger</option><option value="skin">Onion skin</option><option value="plain">Clean sheet</option></select></label>
+    </section>
+    <section class="s wide"><h2>Editing</h2>
+      <div class="tg">
+        <button id="erase" aria-pressed="true" title="Backspace deletes the letter before the cursor">Backspace erases</button>
+        <button id="eraser" aria-pressed="false" title="Click or drag over a page to erase letters">Eraser tool</button>
+        <button id="ins" aria-pressed="true" title="Insert pushes text right like Word. Overstrike types over it like a real typewriter. Insert key toggles.">Insert</button>
+        <button id="wrap" aria-pressed="true">Return at margin</button>
+        <button id="acap" aria-pressed="true" title="Capital letter at the start of a line and after . ! ?">Auto capitals</button>
+      </div>
+    </section>
+    <section class="s"><h2>Sound</h2>
+      <div class="tg1">
+        <button id="snd" aria-pressed="true">Sound on</button>
+        <label class="fld">Volume <input id="vol" type="range" min="0" max="1" step=".05" value=".6" aria-label="Volume"></label>
+      </div>
+    </section>
+    <section class="s"><h2>Clipboard</h2>
+      <div class="two"><button id="copy">Copy text</button><button id="paste">Paste</button></div>
+      <span id="msg" role="status" class="msg"></span>
+    </section>
+    <section class="s"><h2>Sheets</h2>
+      <div class="two"><button id="prev">Prev sheet</button><button id="next">Next sheet</button></div>
+      <div class="pgno"><span id="pgno">Page 1 of 1</span></div>
+      <button id="new">Clear all</button>
+    </section>
+    <section class="s"><h2>Export</h2>
+      <div class="tg1">
+        <button id="done" class="primary" title="Save the current sheet as a JPEG image">Download image</button>
+        <button id="txt" title="Save everything you typed as a text file">Save text</button>
+        <button id="help" title="Shortcuts and Bangla typing guide">Help</button>
+      </div>
+    </section>
+  </aside>
+  <main>
   <div class="sheet" id="sheet">
     <div id="pages"></div>
     <div class="start" id="start">Click the page, then press any key to begin</div>
     <textarea id="cap" aria-label="Type here" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false"></textarea>
   </div>
 </main>
+  <aside class="side right" aria-label="Language and typeface">
+    <h2>Language</h2>
+    <label class="fld"><span class="sr">Typing language</span><select id="lang" aria-label="Typing language"><option value="en">English</option><option value="bn">বাংলা (phonetic)</option></select></label>
+    <h2>Bangla font</h2>
+    <label class="fld"><span class="sr">Bangla typeface</span><select id="bfont" aria-label="Bangla typeface"><option>Noto Sans Bengali</option><option>Noto Serif Bengali</option><option>Hind Siliguri</option><option>Tiro Bangla</option><option>Anek Bangla</option><option>Baloo Da 2</option><option>Galada</option><option>Atma</option><option value="__mix">Mixed (every letter)</option></select></label>
+    <h2>Typeface</h2>
+    <label class="fld"><span class="sr">Typeface</span><select id="font" aria-label="Typeface"><option value="Courier Prime">Courier Prime (screenwriting)</option><option value="Special Elite">Special Elite (retro design)</option><option value="__rough">1942 Report look-alike (worn)</option><option value="Cutive Mono">Cutive Mono</option><option value="IBM Plex Mono">IBM Plex Mono</option><option value="Source Code Pro">Source Code Pro (coding &amp; alignment)</option><option value="__mix">Mixed (every letter)</option></select></label>
+    <p class="note">Typeface applies to English letters. The Bangla font is used when you type in বাংলা.</p>
+  </aside>
+</div>
 
-<p class="hint">Every sheet is A4. When a page is full, typing moves on to a new sheet, and Next sheet jumps to the next one. Click anywhere on a page to put the cursor there. Arrow keys, Home, End, Delete, Page Up and Page Down move or delete as in Word. Insert pushes text right; Overstrike types over it like a real typewriter. Enter splits the line at the cursor and pushes the rest (and the lines below) down, and Backspace at the start of a line joins it back, as in Word. In Overstrike mode Enter just moves to the next line. Backspace erases is on: it deletes the letter before the cursor.<br>Bangla: choose বাংলা, then type phonetically. Examples: ami = আমি, bangla = বাংলা, kh = খ, Ng = ঙ, ng = ং, T = ট, o stops letters joining (kot = কত, kto = ক্ত), . = ।</p>
+<footer class="foot">
+  <p>Your writing stays in your browser. It is autosaved on this device and never uploaded.</p>
+  <p>&copy; <span id="yr"></span> Type Page</p>
+</footer>
 
-<dialog id="dlg">
-  <strong>Your page</strong>
-  <img id="out" alt="Your typed page as an image">
-  <p>Right-click the image (or long-press on a phone) and choose Save image.</p>
-  <div class="row"><button id="close" class="primary">Back to typing</button></div>
+<dialog id="dlg" aria-labelledby="hh">
+  <h2 id="hh">Help</h2>
+  <h3>Writing</h3>
+  <ul>
+    <li>Every sheet is A4. When one is full, typing moves to a new sheet. Next sheet and Prev sheet jump between them.</li>
+    <li>Click anywhere on a sheet to place the cursor. Arrow keys, Home, End, Delete, Page Up and Page Down work as in Word.</li>
+    <li>Enter splits the line at the cursor and pushes the rest down. Backspace at the start of a line joins it back.</li>
+    <li>Insert pushes text right. Overstrike types over it like a real typewriter. The Insert key switches between them.</li>
+    <li>The Eraser tool wipes any letter you click or drag across. Auto capitals capitalizes after a full stop.</li>
+  </ul>
+  <h3>Bangla (phonetic)</h3>
+  <ul>
+    <li>Choose বাংলা in Language, then type with English letters: ami = আমি, bangla = বাংলা, Dhaka = ঢাকা.</li>
+    <li>kh = খ, gh = ঘ, Ng = ঙ, ng = ং, T = ট, D = ড, N = ণ, S = ষ, R = ড়, . = ।</li>
+    <li>Consonants join automatically (kt = ক্ত). Type o between them to keep them apart (kot = কত).</li>
+  </ul>
+  <h3>Saving</h3>
+  <ul>
+    <li>Download image saves the sheet you are on. Save text saves everything as a .txt file.</li>
+    <li>Your work is autosaved in this browser only. Clear all removes it.</li>
+  </ul>
+  <div class="row"><button id="close" class="primary">Close</button></div>
 </dialog>
 
 <script>
@@ -111,7 +196,7 @@ const COLS=60,CW=14,CH=36,MX=70,MY=80,W=980,H=1386,ROWS=34;
 const $=id=>document.getElementById(id),cap=$('cap'),box=$('pages');
 const FONTS=['Courier Prime','Special Elite','Cutive Mono','IBM Plex Mono','Source Code Pro'];
 const DEP=/[\u0981-\u0983\u09BC\u09BE-\u09CD\u09D7]/,CONS=/[\u0995-\u09B9\u09DC-\u09DF]/;
-let pages=[],pg=0,cells,cv,ctx,row=0,col=0,ink='#1b1a18',fontFam='"Courier Prime"',mixed=false,rough=false,autoCap=true,eraseBS=true,wrap=true,sound=true,eraser=false,ins=true,lang='en',vol=.6,caret=true,started=false,quiet=false,hold=false,paper='cream',rb='',bufStart=0,bufRow=0,bufPg=0,down=null,lastMix=-1,lastBn=-1,bfam='Noto Sans Bengali',bmix=false;
+let pages=[],pg=0,cells,cv,ctx,row=0,col=0,ink='#1b1a18',fontFam='"Courier Prime"',mixed=false,rough=false,autoCap=true,eraseBS=true,wrap=true,sound=true,eraser=false,ins=true,lang='en',vol=.6,caret=true,started=false,quiet=false,hold=false,paper='cream',rb='',bufStart=0,bufRow=0,bufPg=0,down=null,lastMix=-1,lastBn=-1,bfam='Noto Sans Bengali',bmix=false,dirty=false;
 const cache={};
 const BN_FONTS=['Noto Sans Bengali','Noto Serif Bengali','Hind Siliguri','Tiro Bangla','Anek Bangla','Baloo Da 2','Galada','Atma'];
 const BNR=/[\u0980-\u09FF]/,mctx=document.createElement('canvas').getContext('2d');
@@ -172,8 +257,8 @@ function paint(c,s,withCaret,cl){
   if(withCaret){c.fillStyle='#1b1a18';c.fillRect(MX+Math.min(col,COLS)*CW-1,MY+row*CH+6,2,CH-12)}
 }
 function paintP(p,active){paint(p.ctx,p.d,active&&caret,p.cells)}
-function draw(){if(hold)return;paintP(pages[pg],true)}
-setInterval(()=>{caret=!caret;draw()},550);
+function draw(){if(hold)return;dirty=true;paintP(pages[pg],true)}
+setInterval(()=>{caret=!caret;if(!hold)paintP(pages[pg],true)},550);
 function redrawAll(){pages.forEach((p,i)=>paintP(p,i===pg))}
 
 /* pages */
@@ -195,8 +280,7 @@ function setPage(i){
 function nextPage(){if(pg+1>=pages.length)addPage();setPage(pg+1);row=0;col=0;bell();if(!hold)follow()}
 function reset(){box.innerHTML='';pages=[];pg=0;addPage();row=0;col=0;setPage(0);rbReset()}
 function follow(){
-  const r=cv.getBoundingClientRect(),y=r.top+(MY+(row+1)*CH)/H*r.height,bar=document.querySelector('.bar');
-  const top=(getComputedStyle(bar).position==='sticky'?bar.getBoundingClientRect().bottom:0)+50;
+  const r=cv.getBoundingClientRect(),y=r.top+(MY+(row+1)*CH)/H*r.height,top=60;
   const vh=(window.visualViewport?visualViewport.height:window.innerHeight)-120;
   const d=y>vh?y-vh:(y<top?y-top:0);
   if(d)window.scrollBy({top:d,behavior:'smooth'});
@@ -447,18 +531,36 @@ $('new').onclick=function(){
   if(!clr){this.textContent='Click again to clear';clr=setTimeout(()=>{clr=0;this.textContent='Clear all'},3000)}
   else{clearTimeout(clr);clr=0;this.textContent='Clear all';reset();back2()}
 };
-let dl=null;
-if(window.claude&&claude.use)claude.use('downloads').then(d=>{dl=d}).catch(()=>{});
+function saveBlob(b,name){const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),5000)}
 $('done').onclick=()=>{
   const s=1080/W,o=document.createElement('canvas');o.width=1080;o.height=Math.round(H*s);
   paint(o.getContext('2d'),s,false,cells);
-  const show=()=>{$('out').src=o.toDataURL('image/jpeg',.92);$('dlg').showModal()};
-  if(!dl){show();return}
-  o.toBlob(async b=>{try{await dl.save({filename:'typewriter-page-'+(pg+1)+'.jpg',data:b})}catch(err){if(!err||err.code!=='declined')show()}},'image/jpeg',.92);
+  o.toBlob(b=>{if(b){saveBlob(b,'typewriter-page-'+(pg+1)+'.jpg');note('Image saved')}},'image/jpeg',.92);
+  back2();
 };
+$('txt').onclick=()=>{const t=pageText();if(!t){note('Nothing to save yet');return}saveBlob(new Blob([t],{type:'text/plain;charset=utf-8'}),'typewriter-text.txt');note('Text saved');back2()};
+$('help').onclick=()=>$('dlg').showModal();
 $('close').onclick=()=>{$('dlg').close();back2()};
 
-reset();
+/* autosave (browser only) */
+const KEY='typepage:v1';
+function save(){try{localStorage.setItem(KEY,JSON.stringify({v:1,pages:pages.map(p=>p.cells)}))}catch(e){}}
+function restore(){
+  try{
+    const d=JSON.parse(localStorage.getItem(KEY)||'null');
+    if(!d||!Array.isArray(d.pages)||!d.pages.length)return;
+    const ok=cl=>Array.isArray(cl)&&cl.length===ROWS&&cl.every(r=>Array.isArray(r)&&r.length===COLS);
+    if(!d.pages.every(ok))return;
+    d.pages.forEach((cl,i)=>{const p=i===0?pages[0]:addPage();p.cells=cl});
+    setPage(0);redrawAll();if(pageText())begin();dirty=false;
+  }catch(e){}
+}
+setInterval(()=>{if(dirty){dirty=false;save()}},1500);
+window.addEventListener('pagehide',save);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)save()});
+$('yr').textContent=new Date().getFullYear();
+
+reset();restore();
 (document.fonts?Promise.all(FONTS.map(f=>document.fonts.load('23px "'+f+'"')).concat([document.fonts.load('16px "Special Elite"')]).concat(BN_FONTS.map(f=>document.fonts.load('23px "'+f+'"','আকখ')))):Promise.resolve()).then(redrawAll);
 window.addEventListener('keydown',e=>{if(document.activeElement===document.body&&!e.ctrlKey&&!e.metaKey&&!$('dlg').open)cap.focus({preventScroll:true})});
 })();
